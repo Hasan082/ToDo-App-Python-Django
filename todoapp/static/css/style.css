@@ -16,19 +16,39 @@
     font-size: 14px;
     border: 1px solid darkcyan;
     padding: 10px 23px !important;
-    border-radius: 4px;
+    border-radius: 0.375rem;
     transition: all .2s linear;
+    text-decoration: none;
 }
-
-.btn-customa:hover {
+.color-custom {
+    color: darkcyan !important;
+}
+.btn-custom:hover {
     background-color: darkcyan;
     color: #fff;
 }
-.input-group-addon {
-    cursor: pointer;
-}
 
-/* Adjust the position of the calendar icon if needed */
-.input-group-addon i {
-    margin-top: 8px;
+.tdbtn {
+    /* width: 30px;
+    height: 30px; */
+    padding: 0px !important;
+    font-size: 17px !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+.nowrap-cell {
+    white-space: nowrap;
+  }
+  
+
+  .fa, .fa-brands, .fa-duotone, .fa-light, .fa-regular, .fa-solid, .fa-thin, .fab, .fad, .fal, .far, .fas, .fat {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: var(--fa-display,inline-block);
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-rendering: auto;
 }

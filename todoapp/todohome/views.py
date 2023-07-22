@@ -15,6 +15,8 @@ def index(request):
         todoStore.save()
         # Redirect to the 'alldata' view after saving the data
         return redirect('alldata')
+    else:
+       return render(request, 'index.html') 
 
     return render(request, 'index.html')
 

@@ -12,5 +12,7 @@ from todohome import views
 urlpatterns = [
     path('', views.index, name='home'),
     path('alldata/', views.alldata, name='alldata'),
-    # ... other URL patterns ...
+    path('remaining_task/', views.alldata, name='remaining_task'),
+    path('completed_tasks/', views.alldata, name='completed_tasks'),
+
 ]

@@ -1,58 +1,19 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/datepicker.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>Document</title>
-</head>
-<body>
-    <div class="container">
-        <div class="row">
-
-            <nav class="navbar navbar-expand-sm bg-light justify-content-center border-bottom py-4">
-
-                <ul class="navbar-nav ml-auto ">
-                    <li class="nav-item mx-3">
-                        <a class="nav-link p-2" href="#">
-                            Add Task
-                        </a>
-                    </li>
-                    <li class="nav-item mx-3">
-                        <a class="nav-link p-2" href="#">
-                            Remaing Task
-                        </a>
-                    </li>
-                    <li class="nav-item mx-3">
-                        <a class="nav-link p-2" href="#">
-                            Completed Task
-                        </a>
-                    </li>
-                    <li class="nav-item mx-3">
-                        <a class="nav-link p-2" href="#">
-                            All Task
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-
-        </div>
-    </div>
-
+{% block content %}
     <div class="container bg-light py-5">
         <div class="row">
-            <div class="col-md-8 mx-auto">
+            <div class="col-md-12">
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
+                            <th scope="col">SI</th>
                             <th scope="col">Task Title</th>
-                            <th scope="col">task Description</th>
-                            <th scope="col">Date Completed</th>
+                            <th scope="col">Task Details</th>
+                            <th scope="col" class="nowrap-cell">Date Complete</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
+                            <th scope="col">Active?</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -62,19 +23,15 @@
                             <td>{{i.title}}</td>
                             <td>{{i.description}}</td>
                             <td>{{i.datecomplete}}</td>
+                            <td class="single-line-cell"><a href="#" class="me-1 tdbtn color-custom"><i class="fa fa-edit"></i></a></td>
+                            <td class="single-line-cell"><a href="#" class="tdbtn ms-1 text-danger"><i class="fas fa-trash-alt"></i></a></td>
+                            <td><a href="" class="tdbtn text-info"><i class="fa-solid fa-square-check"></i><i class="fa-regular fa-square"></i></a></td>
                         </tr>
                         {% endfor %}
                     </tbody>
                 </table>
             </div>
         </div>
-
     </div>
 
-    <script src="{% static 'js/jquery-3.7.0.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/datepicker.mim.js' %}"></script>
-    <script src="{% static 'js/index.js' %}"></script>
-</body>
-
-</html>
+    {% endblock %}
