@@ -24,3 +24,11 @@
     background-color: darkcyan;
     color: #fff;
 }
+.input-group-addon {
+    cursor: pointer;
+}
+
+/* Adjust the position of the calendar icon if needed */
+.input-group-addon i {
+    margin-top: 8px;
+}
