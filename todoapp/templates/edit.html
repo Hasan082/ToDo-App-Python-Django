@@ -2,38 +2,40 @@
 {% block title %} Add Task {% endblock %}
 {% block content %}
     <div class="container contact-form formWrap bg-light pb-5">
+        {% for i in edit %}
         <form action="{% url 'home' %}" method="POST" id="taskform">
             {% csrf_token %}
             <div class="row">
                 <div class="col-md-10 mx-auto">
                     <div class="form-title my-4">
-                        <h1 class="text-center">Add your task</h1>
+                        <h1 class="text-center">Update your task</h1>
                     </div>
                     <div class="form-group mb-4">
                         <label for="txtName">Task Title *</label>
                         <br>
-                        <input type="text" name="txtName" class="form-control" value="" id="txtName" placeholder="Title less than 255 charecter" autocomplete="off" />
+                        <input type="text" name="txtName" class="form-control" value="{{i.title}}" id="txtName" placeholder="Title less than 255 charecter" autocomplete="off" />
                     </div>
                     <div class="form-group mb-4">
                         <label for="txtMsg">Task Description *</label>
                         <br>
                         <textarea name="txtMsg" class="form-control" style="width: 100%; height: 150px;"
-                            id="txtMsg" autocomplete="off" placeholder="Description less than 600 charecter"></textarea>
+                            id="txtMsg" autocomplete="off" placeholder="Description less than 600 charecter">{{i.description}}</textarea>
                     </div>
                     <div class="wrapper">
                         <label for="txtDate">Date Completed *</label>
                         <div id="datepicker" class="input-group date mb-4" data-date-format="yyyy-mm-dd">
-                            <input class="form-control" type="text" readonly name="txtDate" id="txtDate" placeholder="Choose date from calender" />
+                            <input class="form-control" type="text" value="{{i.datecomplete}}" readonly name="txtDate" id="txtDate" placeholder="Choose date from calender" />
                             <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                         </div>
                     </div>
                     
                     <div class="form-group text-center">
-                        <input type="submit" name="btnSubmit" class="btnContact btn-custom p-3" value="Add Task" />
+                        <input type="submit" name="btnSubmit" class="btnContact btn-custom p-3" value="Update Task" />
                     </div>
                 </div>
             </div>
         </form>
+        {% endfor %}
     </div>
 
     {% endblock %}

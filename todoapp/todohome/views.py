@@ -25,6 +25,14 @@ def alldata(request):
     alldata = todomodel.objects.all()
     return render(request, 'alldata.html', {'alldata': alldata})
 
+def editdata(request, id):
+    edit = todomodel.objects.filter(id = id)
+    return render(request, 'edit.html', {'edit': edit})
+
+
+def updatedata(request, id):
+    pass
+
 
 def remaining_tasks(request):
     # Render the "remaining_tasks.html" template
