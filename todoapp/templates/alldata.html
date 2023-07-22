@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/datepicker.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+
+            <nav class="navbar navbar-expand-sm bg-light justify-content-center border-bottom py-4">
+
+                <ul class="navbar-nav ml-auto ">
+                    <li class="nav-item mx-3">
+                        <a class="nav-link p-2" href="#">
+                            Add Task
+                        </a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link p-2" href="#">
+                            Remaing Task
+                        </a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link p-2" href="#">
+                            Completed Task
+                        </a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link p-2" href="#">
+                            All Task
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+
+    <div class="container bg-light py-5">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Task Title</th>
+                            <th scope="col">task Description</th>
+                            <th scope="col">Date Completed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in alldata %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{i.title}}</td>
+                            <td>{{i.description}}</td>
+                            <td>{{i.datecomplete}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="{% static 'js/jquery-3.7.0.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/datepicker.mim.js' %}"></script>
+    <script src="{% static 'js/index.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+.navbar-expand-sm .navbar-nav a {
+    text-transform: uppercase !important;
+    font-size: 14px;
+    border: 1px solid darkcyan;
+    padding: 10px 23px !important;
+    border-radius: 4px;
+    transition: all .2s linear;
+}
+.navbar-expand-sm .navbar-nav a:hover {
+    background-color: darkcyan;
+    color: #fff;
+}
+
+.btn-custom {
+    text-transform: uppercase !important;
+    font-size: 14px;
+    border: 1px solid darkcyan;
+    padding: 10px 23px !important;
+    border-radius: 4px;
+    transition: all .2s linear;
+}
+
+.btn-customa:hover {
+    background-color: darkcyan;
+    color: #fff;
+}

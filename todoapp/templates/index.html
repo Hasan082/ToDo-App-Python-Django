@@ -1,42 +1,88 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" >
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/datepicker.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>Document</title>
 </head>
+
 <body>
-    <h1></h1>
-    <div class="container contact-form formWrap">        
-        <form method="post">
-           <div class="row">
-                <div class="col-md-8 mx-auto">  
-                    <div class="form-group mb-4">
-                        <input type="text" name="txtName" class="form-control" placeholder="Task Title *" value="" />
-                    </div>                   
-                    <div class="form-group mb-4">
-                        <textarea name="txtMsg" class="form-control" placeholder="Task Description *" style="width: 100%; height: 150px;"></textarea>
+    <div class="container">
+        <div class="row">
+
+            <nav class="navbar navbar-expand-sm bg-light justify-content-center border-bottom py-4">
+
+                <ul class="navbar-nav ml-auto ">
+                    <li class="nav-item mx-3">
+                        <a class="nav-link p-2" href="{% url 'home' %}">
+                            Add Task
+                        </a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link p-2" href="#">
+                            Remaing Task
+                        </a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link p-2" href="#">
+                            Completed Task
+                        </a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link p-2" href="{% url 'alldata' %}">
+                            All Task
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+
+    <div class="container contact-form formWrap bg-light pb-5">
+        <form action="{% url 'home' %}" method="POST" id="taskform">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <div class="form-title my-4">
+                        <h1 class="text-center">Add your task</h1>
                     </div>
-                    <div id="datepicker" class="input-group date mb-4" data-date-format="mm-dd-yyyy">
-                        <input class="form-control" type="text" readonly />
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                    <div class="form-group mb-4">
+                        <label for="txtName">Task Title *</label>
+                        <br>
+                        <input type="text" name="txtName" class="form-control" value="" id="txtName" />
                     </div>
-                    <div class="form-group">
-                        <input type="submit" name="btnSubmit" class="btnContact" value="Send Message" />
+                    <div class="form-group mb-4">
+                        <label for="txtMsg">Task Description *</label>
+                        <br>
+                        <textarea name="txtMsg" class="form-control" style="width: 100%; height: 150px;"
+                            id="txtMsg"></textarea>
+                    </div>
+                    <div class="wrapper">
+                        <label for="txtDate">Date Completed *</label>
+                        <div id="datepicker" class="input-group date mb-4" data-date-format="yyyy-mm-dd">
+                            <input class="form-control" type="text" readonly name="txtDate" id="txtDate" />
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                        </div>
+                    </div>
+                    <div class="form-group text-center">
+                        <input type="submit" name="btnSubmit" class="btnContact btn-custom p-3" value="Send Message" />
                     </div>
                 </div>
             </div>
         </form>
     </div>
-    
+
 
     <script src="{% static 'js/jquery-3.7.0.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+    <script src="{% static 'js/datepicker.mim.js' %}"></script>
     <script src="{% static 'js/index.js' %}"></script>
 </body>
+
 </html>
