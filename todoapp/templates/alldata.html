@@ -24,7 +24,7 @@
                             <td>{{i.description}}</td>
                             <td>{{i.datecomplete}}</td>
                             <td><a href="{% url 'editdata' i.id %}" class="me-1 tdbtn color-custom"><i class="fa fa-edit"></i></a></td>
-                            <td><a href="#" class="tdbtn ms-1 text-danger"><i class="fas fa-trash-alt"></i></a></td>
+                            <td><a href="{% url 'deletedata' i.id %}" class="tdbtn ms-1 text-danger"><i class="fas fa-trash-alt"></i></a></td>
                             <td><a href="" class="tdbtn text-info"><i class="fa-solid fa-square-check"></i><i class="fa-regular fa-square"></i></a></td>
                         </tr>
                         {% endfor %}

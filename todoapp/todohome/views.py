@@ -15,8 +15,6 @@ def index(request):
         todoStore.save()
         # Redirect to the 'alldata' view after saving the data
         return redirect('alldata')
-    else:
-       return render(request, 'index.html') 
 
     return render(request, 'index.html')
 
@@ -31,7 +29,27 @@ def editdata(request, id):
 
 
 def updatedata(request, id):
-    pass
+    if request.method == 'POST':
+        title = request.POST.get('txtName')
+        description = request.POST.get('txtMsg')
+        datecomplete = request.POST.get('txtDate')
+
+        todoStore = todomodel.objects.filter(id=id)
+
+        todoStore = todomodel(
+            id=id,
+            title=title,
+            description=description,
+            datecomplete=datecomplete
+        )
+        todoStore.save()
+        # Redirect to the 'alldata' view after saving the data
+        return redirect('alldata')
+
+
+def deletedata(request, id):
+    delete = todomodel.objects.filter(id=id).delete()
+    return redirect('alldata')
 
 
 def remaining_tasks(request):

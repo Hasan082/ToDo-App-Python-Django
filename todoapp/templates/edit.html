@@ -3,7 +3,7 @@
 {% block content %}
     <div class="container contact-form formWrap bg-light pb-5">
         {% for i in edit %}
-        <form action="{% url 'home' %}" method="POST" id="taskform">
+        <form action="{% url 'updatedata' i.id %}" method="POST" id="taskform">
             {% csrf_token %}
             <div class="row">
                 <div class="col-md-10 mx-auto">
