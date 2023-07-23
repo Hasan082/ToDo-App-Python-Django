@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %} Reamining Task {% endblock %}
+{% block content %}
+    <div class="container bg-light py-5">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">SI</th>
+                            <th scope="col">Task Title</th>
+                            <th scope="col">Task Details</th>
+                            <th scope="col" class="nowrap-cell">Date Complete</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
+                            <th scope="col">Active?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in alldata %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{i.title}}</td>
+                            <td>{{i.description}}</td>
+                            <td>{{i.datecomplete}}</td>
+                            <td><a href="{% url 'editdata' i.id %}" class="me-1 tdbtn color-custom"><i class="fa fa-edit"></i></a></td>
+                            <td><a href="{% url 'deletedata' i.id %}" class="tdbtn ms-1 text-danger"><i class="fas fa-trash-alt"></i></a></td>
+                            <td><a href="" class="tdbtn text-info"><i class="fa-solid fa-square-check"></i><i class="fa-regular fa-square"></i></a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}
