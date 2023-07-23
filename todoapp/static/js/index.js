@@ -1,12 +1,12 @@
 $(document).ready(function () {
 
-    //Date fild code===========================
+    //Date field code=============================================
     $("#datepicker").datepicker({
         autoclose: true,
         todayHighlight: true,
     });
 
-    // form validation jquery====================
+    // form validation jquery=====================================
 
     let formId = $("#taskform");
 
@@ -34,5 +34,16 @@ $(document).ready(function () {
 
         formId[0].submit();
     });
+
+    //manually remove the alert message======================================
+    // $('.alert').on('click', function(){
+    //     $(this).remove();
+    // });
+    
+    //if manually not deleted, after 10sec alert emassge remove automatically
+    // setTimeout(function(){
+    //     $('.alert').remove();
+    // }, 10000)
+
 
 });

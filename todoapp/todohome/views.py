@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import todomodel
+from django.contrib import messages
 
 def index(request):
     if request.method == 'POST':
@@ -12,6 +13,7 @@ def index(request):
             description=description,
             datecomplete=datecomplete
         )
+        messages.success(request, "Task added successfully")
         todoStore.save()
         # Redirect to the 'alldata' view after saving the data
         return redirect('alldata')
@@ -22,6 +24,7 @@ def index(request):
 def alldata(request):
     alldata = todomodel.objects.all()
     return render(request, 'alldata.html', {'alldata': alldata})
+
 
 def editdata(request, id):
     edit = todomodel.objects.filter(id = id)
@@ -42,6 +45,7 @@ def updatedata(request, id):
             description=description,
             datecomplete=datecomplete
         )
+        messages.info(request, "Task Updated successfully")
         todoStore.save()
         # Redirect to the 'alldata' view after saving the data
         return redirect('alldata')
@@ -49,13 +53,21 @@ def updatedata(request, id):
 
 def deletedata(request, id):
     delete = todomodel.objects.filter(id=id).delete()
+    messages.error(request, "Task Deleted successfully")
     return redirect('alldata')
 
 
-def remaining_tasks(request):
-    # Render the "remaining_tasks.html" template
-    return render(request, 'remaining_tasks.html')
+def statusdata(request, id):
+    status_data = todomodel.objects.get(id=id)
+    status_data.status = True
+    status_data.save()
+    return redirect('alldata')
 
-def completed_tasks(request):
-    # Render the "completed_tasks.html" template
-    return render(request, 'completed_tasks.html')
+
+# def completed_tasks(request):
+#     pass
+
+
+
+# def remaining_tasks(request):
+#     pass

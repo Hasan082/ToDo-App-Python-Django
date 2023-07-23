@@ -15,6 +15,7 @@ urlpatterns = [
     path('edit/<int:id>', views.editdata, name='editdata'),
     path('update/<int:id>/', views.updatedata, name='updatedata'),
     path('delete/<int:id>', views.deletedata, name='deletedata'),
-    path('remaining_task/', views.remaining_tasks, name='remainingtask'),
-    path('completed_tasks/', views.completed_tasks, name='completedtasks'),
+    path('statusdata/<int:id>', views.statusdata, name='statusdata'),
+    # path('completed_tasks/', views.completed_tasks, name='completedtasks'),
+    # path('remaining_task/', views.remaining_tasks, name='remainingtask'),
 ]
