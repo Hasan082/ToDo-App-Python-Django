@@ -39,7 +39,7 @@
                         <td>{{ i.title }}</td>
                         <td>{{ i.description }}</td>
                         <td>{{ i.datecomplete }}</td>
-                        <td><a title="edit" href="{% url 'editdata' i.id %}" class="me-1 tdbtn color-custom"><i class="fa fa-edit"></i></a>||<a title="delete" href="{% url 'deletedata' i.id %}" class="tdbtn ms-1 text-danger"><i class="fas fa-trash-alt"></i></a></td>
+                        <td><a title="edit" href="{% url 'editdata' i.id %}" class="me-1 tdbtn color-custom"><i class="fa fa-edit"></i></a>||<a title="delete" href="{% url 'soft_del' i.id %}" class="tdbtn ms-1 text-danger"><i class="fas fa-trash-alt"></i></a></td>
                         <!-- <td><a href="{% url 'statusdata' i.id %}" class="tdbtn text-info">Active</a></td> -->
                         <td><a href="{% url 'statusdata' i.id %}" class="tdbtn text-info">{% if i.status == 1 %}<i class="fa-solid fa-square-check"></i>{% else %}<i
                                         class="fa-regular fa-square"></i>{% endif %}</a></td>

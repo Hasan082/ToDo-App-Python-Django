@@ -22,7 +22,7 @@ def index(request):
 
 
 def alldata(request):
-    alldata = todomodel.objects.all()
+    alldata = todomodel.objects.filter(soft_del=0)
     return render(request, 'alldata.html', {'alldata': alldata})
 
 
@@ -54,7 +54,7 @@ def updatedata(request, id):
 def deletedata(request, id):
     delete = todomodel.objects.filter(id=id).delete()
     messages.error(request, "Task Deleted successfully")
-    return redirect('alldata')
+    return redirect('trash')
 
 
 def statusdata(request, id):
@@ -65,13 +65,25 @@ def statusdata(request, id):
 
 
 def completed_tasks(request):
-    completed_tasks = todomodel.objects.filter(status=1)
+    completed_tasks = todomodel.objects.filter(status=1, soft_del=0)
     return render(request, 'completed_tasks.html', {'completed_tasks': completed_tasks})
 
 
 def remaining_tasks(request):
-    remaining_tasks = todomodel.objects.filter(status=0)
+    remaining_tasks = todomodel.objects.filter(status=0, soft_del=0)
     return render(request, 'remaining_tasks.html', {'remaining_tasks': remaining_tasks})
 
 
 
+def soft_del(request, id):
+    soft_del = todomodel.objects.get(id=id)
+    soft_del.soft_del = True
+    soft_del.save()
+    return redirect('alldata')
+
+
+
+def trash(request):
+    trash = todomodel.objects.filter(soft_del=1)
+    # messages.error(request, "Task Deleted successfully")
+    return render(request, 'trash.html', {'trash': trash})

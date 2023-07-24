@@ -18,4 +18,6 @@ urlpatterns = [
     path('statusdata/<int:id>', views.statusdata, name='statusdata'),
     path('completed_tasks/', views.completed_tasks, name='completedtasks'),
     path('remaining_task/', views.remaining_tasks, name='remainingtask'),
+    path('soft_del/<int:id>', views.soft_del, name='soft_del'),
+    path('trash/', views.trash, name='trash'),
 ]
