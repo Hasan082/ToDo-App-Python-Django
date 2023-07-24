@@ -1,37 +1,60 @@
-<!-- {% extends 'base.html' %}
-{% block title %} Reamining Task {% endblock %}
+{% extends 'base.html' %}
+{% block title %} Remaining Rask {% endblock %}
+
 {% block content %}
-    <div class="container bg-light py-5">
-        <div class="row">
-            <div class="col-md-12">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">SI</th>
-                            <th scope="col">Task Title</th>
-                            <th scope="col">Task Details</th>
-                            <th scope="col" class="nowrap-cell">Date Complete</th>
-                            <th scope="col">Edit</th>
-                            <th scope="col">Delete</th>
-                            <th scope="col">Active?</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for i in alldata %}
-                        <tr>
-                            <td>{{ forloop.counter }}</td>
-                            <td>{{i.title}}</td>
-                            <td>{{i.description}}</td>
-                            <td>{{i.datecomplete}}</td>
-                            <td><a href="{% url 'editdata' i.id %}" class="me-1 tdbtn color-custom"><i class="fa fa-edit"></i></a></td>
-                            <td><a href="{% url 'deletedata' i.id %}" class="tdbtn ms-1 text-danger"><i class="fas fa-trash-alt"></i></a></td>
-                            <td><a href="" class="tdbtn text-info"><i class="fa-solid fa-square-check"></i><i class="fa-regular fa-square"></i></a></td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+
+
+<div class="container bg-light py-5">
+    <div class="row">
+        <div class="col-md-12">
+
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert {% if 'success' in message.tags %}alert-success{% elif 'error' in message.tags %}alert-danger{% elif 'info' in message.tags %}alert-info{% endif %} fade show"
+                role="alert">
+                <strong>{{ message }}</strong>
+                <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
+            {% endfor %}
+            {% endif %}
+
+
+            <table class="table table-striped">
+
+                <thead>
+                    <tr>
+                        <th scope="col">SI</th>
+                        <th scope="col">Task Title</th>
+                        <th scope="col">Task Details</th>
+                        <th scope="col" class="nowrap-cell">Date Complete</th>
+                        <th scope="col">Action</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for i in remaining_tasks %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ i.title }}</td>
+                        <td>{{ i.description }}</td>
+                        <td>{{ i.datecomplete }}</td>
+                        <td><a title="edit" href="{% url 'editdata' i.id %}" class="me-1 tdbtn color-custom"><i
+                                    class="fa fa-edit"></i></a>||<a title="delete" href="{% url 'deletedata' i.id %}"
+                                class="tdbtn ms-1 text-danger"><i class="fas fa-trash-alt"></i></a></td>
+                        <!-- <td><a href="{% url 'statusdata' i.id %}" class="tdbtn text-info">Active</a></td> -->
+                        <td><a href="{% url 'statusdata' i.id %}" class="tdbtn text-info">{% if i.status == 1 %}<i
+                                    class="fa-solid fa-square-check"></i>{% else %}<i
+                                    class="fa-regular fa-square"></i>{% endif %}</a></td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
         </div>
     </div>
+</div>
 
-    {% endblock %} -->
+{% endblock %}

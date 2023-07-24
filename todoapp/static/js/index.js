@@ -35,15 +35,16 @@ $(document).ready(function () {
         formId[0].submit();
     });
 
-    //manually remove the alert message======================================
-    // $('.alert').on('click', function(){
-    //     $(this).remove();
-    // });
+    // manually remove the alert message======================================
+    $('.alert').on('click', function(e){
+        e.preventDefault();
+        $(this).remove();
+    });
     
-    //if manually not deleted, after 10sec alert emassge remove automatically
-    // setTimeout(function(){
-    //     $('.alert').remove();
-    // }, 10000)
+    // if manually not deleted, after 10sec alert emassge remove automatically
+    setTimeout(function(){
+        $('.alert').remove();
+    }, 10000)
 
 
 });

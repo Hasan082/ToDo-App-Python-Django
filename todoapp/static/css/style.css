@@ -1,27 +1,27 @@
 /* Modern browsers and IE Edge */
 ::placeholder {
     color: #999 !important;
-    opacity: .3;
+    opacity: .2;
   }
   
   /* For Firefox */
   :-moz-placeholder {
-    color: #999 !important; opacity: .3;
+    color: #999 !important; opacity: .2;
   }
   
   /* For Safari, Google Chrome, and Microsoft Edge (version 79+) */
   ::-webkit-input-placeholder {
-    color: #999 !important;
+    color: #999 !important; opacity: .2;
   }
   
   /* For Microsoft Internet Explorer 10-11 */
   :-ms-input-placeholder {
-    color: #999 !important; opacity: .3;
+    color: #999 !important; opacity: .2;
   }
   
   /* For Microsoft Internet Explorer 9 */
   .input-placeholder {
-    color: #999 !important;opacity: .3;
+    color: #999 !important;opacity: .2;
   }
   
 
@@ -57,7 +57,7 @@
 
 .tdbtn {
     padding: 0px !important;
-    font-size: 17px !important;
+    font-size: 15px !important;
     display: inline-flex;
     align-items: center;
     justify-content: center;

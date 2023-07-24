@@ -64,10 +64,14 @@ def statusdata(request, id):
     return redirect('alldata')
 
 
-# def completed_tasks(request):
-#     pass
+def completed_tasks(request):
+    completed_tasks = todomodel.objects.filter(status=1)
+    return render(request, 'completed_tasks.html', {'completed_tasks': completed_tasks})
+
+
+def remaining_tasks(request):
+    remaining_tasks = todomodel.objects.filter(status=0)
+    return render(request, 'remaining_tasks.html', {'remaining_tasks': remaining_tasks})
 
 
 
-# def remaining_tasks(request):
-#     pass
