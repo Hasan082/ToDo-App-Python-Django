@@ -13,6 +13,7 @@ def index(request):
             description=description,
             datecomplete=datecomplete
         )
+        
         messages.success(request, "Task added successfully")
         todoStore.save()
         # Redirect to the 'alldata' view after saving the data
