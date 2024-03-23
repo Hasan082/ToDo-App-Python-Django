@@ -1,0 +1,29 @@
+# Compiled Python files
+*.pyc
+
+# Directory for virtual environments
+venv/
+
+# Directory for local settings
+*/settings_local.py
+
+# Ignore the Django migrations directory
+**/migrations/
+
+
+# Ignore static files directory (if using collectstatic)
+staticfiles/
+
+# Ignore media files directory
+media/
+
+# Ignore environment-specific files
+.env
+
+# Ignore logs
+logs/
+
+# Ignore cache files
+*.log
+*.cache
+__pycache__/
