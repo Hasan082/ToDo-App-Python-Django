@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-5#7#bdaq$39y4uwi#!g8@+w=)tx#1)%!j%pqwa#1=lro_j5e#+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['http://hasandev.xyz/', 'hasandev.xyz', '103.191.50.74', '127.0.0.1']
 
 
 # Application definition
@@ -74,6 +74,9 @@ WSGI_APPLICATION = 'todoapp.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+
+
+
 
 DATABASES = {
     'default': {
