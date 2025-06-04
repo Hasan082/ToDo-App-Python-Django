@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-md-12">
 
-            {% if messages %}
+            {% comment %} {% if messages %}
             {% for message in messages %}
             <div class="alert {% if 'success' in message.tags %}alert-success{% elif 'error' in message.tags %}alert-danger{% elif 'info' in message.tags %}alert-info{% endif %} fade show"
                 role="alert">
@@ -18,7 +18,7 @@
                 </button>
             </div>
             {% endfor %}
-            {% endif %}
+            {% endif %} {% endcomment %}
 
 
             <table class="table table-striped">

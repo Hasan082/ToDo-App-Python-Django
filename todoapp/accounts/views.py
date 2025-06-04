@@ -7,9 +7,17 @@ from django.contrib import messages
 
 # Create your views here.
 def login_view(request):
+    """Handle user login.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponse: The HTTP response object.
+    """
     # First check if user is already register
     if request.user.is_authenticated:
-        return redirect('home')
+        return redirect(request.GET.get('next', 'home'))
     
     # If Not login then Try login
     if request.method == 'POST':
@@ -31,14 +39,33 @@ def login_view(request):
 
     return render(request, 'login.html', {'form': form})
 
-
+# Logout view to log out the user
+# and redirect to the login page with a success message
 def logout_view(request):
+    """
+    Handle user logout.
+    """
     logout(request)
     messages.success(request, 'You have been logged out.')
     return redirect('login')
 
-
+# Registration view to handle user registration
+# It uses a custom user creation form to register new users
 def register_view(request):
+    """
+    Handle user registration.
+
+    This view processes the user registration form. If the form is valid, the user's data is saved,
+    and they are redirected to the login page with a success message. If the form is invalid, an error 
+    message is displayed.
+
+    Args:
+        request (HttpRequest): The HTTP request object, which contains the form data in case of a POST request.
+
+    Returns:
+        HttpResponse: The HTTP response object, which renders the registration page or redirects to the login page.
+    """
+
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():

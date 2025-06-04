@@ -54,17 +54,19 @@ def updatedata(request, id):
         # Redirect to the 'alldata' view after saving the data
         return redirect('alldata')
 
-
+@login_required
 def deletedata(request, id):
-    delete = todomodel.objects.filter(id=id).delete()
+    delete_data = todomodel.objects.filter(id=id)
+    delete_data.delete()
     messages.error(request, "Task Deleted successfully")
     return redirect('trash')
 
-
+@login_required
 def statusdata(request, id):
     status_data = todomodel.objects.get(id=id)
     status_data.status = True
     status_data.save()
+    messages.error(request, "Task moved to bin successfully")
     return redirect('alldata')
 
 @login_required
@@ -82,11 +84,11 @@ def soft_del(request, id):
     soft_del = todomodel.objects.get(id=id)
     soft_del.soft_del = True
     soft_del.save()
+    messages.error(request, "Task moved to bin successfully")
     return redirect('alldata')
 
 
 @login_required
 def trash(request):
     trash = todomodel.objects.filter(soft_del=1)
-    # messages.error(request, "Task Deleted successfully")
     return render(request, 'trash.html', {'trash': trash})

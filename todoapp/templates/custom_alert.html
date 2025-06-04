@@ -6,10 +6,10 @@
             icon: '{% if message.tags == "success" %}success{% elif message.tags == "error" %}error{% elif message.tags == "warning" %}warning{% else %}info{% endif %}',
             title: '{{ message.tags|capfirst }}!',
             text: '{{ message|escapejs }}',
-            timer: 5000,
+            /*timer: 5000,*/
             showConfirmButton: true,
             customClass: {
-                confirmButton: 'btn btn-primary'  
+                confirmButton: 'btn btn-{% if message.tags == "success" %}primary{% elif message.tags == "error" %}danger{% elif message.tags == "warning" %}warning{% else %}info{% endif %}'  
             }
         });
         {% endfor %}
