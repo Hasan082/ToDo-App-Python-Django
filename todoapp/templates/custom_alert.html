@@ -1,0 +1,19 @@
+{% block script %}
+<script>
+    $(document).ready(function() {
+        {% for message in messages %}
+        Swal.fire({
+            icon: '{% if message.tags == "success" %}success{% elif message.tags == "error" %}error{% elif message.tags == "warning" %}warning{% else %}info{% endif %}',
+            title: '{{ message.tags|capfirst }}!',
+            text: '{{ message|escapejs }}',
+            timer: 5000,
+            showConfirmButton: true,
+            customClass: {
+                confirmButton: 'btn btn-primary'  
+            }
+        });
+        {% endfor %}
+    });
+</script>
+{% endblock script %}
+

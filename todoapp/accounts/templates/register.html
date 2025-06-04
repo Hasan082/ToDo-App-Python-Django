@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 {% load crispy_forms_tags %}
 <html lang="en">
 
@@ -37,6 +38,14 @@
         </div>
     </div>
 
+    <script src="{% static 'js/jquery-3.7.0.min.js' %}"></script>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    {% if messages %}
+    {% block script %}
+    {% include 'custom_alert.html' %}
+    {% endblock script %}
+    {% endif %}
 </body>
 
 </html>
