@@ -1,6 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect # type: ignore
 from .models import todomodel
-from django.contrib import messages
+from django.contrib import messages # type: ignore
 
 def index(request):
     if request.method == 'POST':

@@ -33,9 +33,10 @@
     border-radius: 4px;
     transition: all .2s linear;
 }
+.nav-link.active,
 .navbar-expand-sm .navbar-nav a:hover {
     background-color: darkcyan;
-    color: #fff;
+    color: #fff !important
 }
 
 .btn-custom {
